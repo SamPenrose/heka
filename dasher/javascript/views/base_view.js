@@ -100,6 +100,31 @@ define(
       },
 
       /**
+      * Input and output plugins may have, respectively, decoder and encoder
+      * plugins consuming and feeding them. This method renders the
+      * appropriate coders.
+      *
+      * @method renderCoders
+      */
+      renderCoders: function() {
+        var collection = this.model.get('coders');
+        if (!collection) {
+          return;
+        }
+
+        this.$(".coders_container").empty()
+        collection.forEach(function(item) {
+          // We assume that *puts have unique names, and that *coder names
+          // begin with the name of the *put they work with.
+          if (item.id.indexOf(this.model.id) == 0)  {
+            var view = new this.CodersRow({model: item});
+            this.trackSubview(view);
+            this.$(".coders_container").append(view.render().el);
+          }
+        }.bind(this))
+      },
+
+      /**
       * Assigns view to a selector.
       *
       * @method assign

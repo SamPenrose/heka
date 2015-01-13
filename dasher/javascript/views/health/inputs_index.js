@@ -23,12 +23,12 @@ define(
       },
 
       /**
-      * Renders InputsRow into `.inputs tbody` after render.
+      * Renders InputsRow into `.inputs_row_container` after render.
       *
       * @method afterRender
       */
       afterRender: function() {
-        this.renderCollection(InputsRow, ".inputs tbody");
+        this.renderCollection(InputsRow, ".inputs_row_container");
       }
     });
 
