@@ -181,6 +181,7 @@ define(
           this.parseArrayIntoCollection(response.outputs, this.outputs, "Output");
 
           this.parseArrayIntoCollection(response.encoders, this.encoders, "Encoder");
+          this.mapCodersToPuts(this.inputs, this.outputs, this.decoders, this.encoders);
 
           this.inputs.forEach(function (input) {
             this.mapCodersToPut(input, this.decoders, true);
