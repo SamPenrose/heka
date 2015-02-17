@@ -1,27 +1,89 @@
-<h1 class="page-title">Sandboxes</h1>
+<div class="row sandbox-content">
+  <div class="col-md-4 plugin-column">
+    <h1 class="page-title sandbox-title">Sandboxes</h1>
+    {{#collection.length}}
+    <div class="sandboxes-table">
+      {{#collection}}
+        <div class="sandboxes-filter-row">
+          <div class="sandboxes-filter-name">
+            <span class="glyphicon glyphicon-filter"></span>
+            <strong><a href="#plugins/filters/{{Name}}">{{Name}}</a></strong>
+          </div>
+        </div>
+        {{#Outputs}}
+        <div class="sandboxes-output-row">
+          <div class="sandboxes-output-name"><a href="#sandboxes/{{PluginName}}/outputs/{{ShortFilename}}">{{Name}}{{^Name}}[Untitled]{{/Name}}</a></div>
+          <div class="sandboxes-output-type"><small>{{Type}}</small></div>
+          <div class="sandboxes-output-graph">
+            <div class="checkbox" id="sandboxes-checkbox-enabled-{{Name}}/{{PluginName}}/{{ShortFilename}}">
+              <label>
+                <input type="checkbox" class="sandboxes-graph-checkbox" id="#sandboxes/{{PluginName}}/outputs/{{ShortFilename}}/graph-order/1">
+                Graph
+              </label>
+            </div>
+          </div>
+        </div>
+        {{/Outputs}}
+      {{/collection}}
+    </div>
+    {{/collection.length}}
+  </div>
+  <div class="col-md-8 plugin-column">
+    <div>
+      <span>
+        <h2>Dashboards</h2>
 
-{{#collection.length}}
-<table class="sandboxes table">
-  <thead>
-    <th class="name">Name</th>
-    <th class="type">Type</th>
-  </thead>
-  <tbody>
-    {{#collection}}
+        <div>
+          <table>
+            <tr>
+              <td colspan="2">
+                <select id="dashboardMenu" size=2>
+                  <optgroup id="existingDashboards" label="Edit a Dashboard">
+                  </optgroup>
+                  <option>New Dashboard</option>
+                <select>
+              </td>
+              <td valign="top">
+                <input type="text" id="dashboard-name-input" placeholder="Dashboard Name">
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="2" align="right">
+                <a href="#sandboxes-set-dashboard-name">Save</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+
+        <!-- <div>
+          <span>
+            <select id="dashboardMenu" size=2>
+              <optgroup id="existingDashboards" label="Edit a Dashboard">
+              </optgroup>
+              <option>New Dashboard</option>
+            <select>
+          </span>
+          <span>
+            <span>
+              <input type="text" id="dashboard-name-input" placeholder="Dashboard Name">
+            </span>
+            <div>
+              <a href="#sandboxes-set-dashboard-name">Save</a>
+            </div>
+          </span>
+        </div> -->
+      </span>
+    </div>
+    <table id="sandboxes-dashboard-preview-table">
       <tr>
-        <th class="name" colspan="2"><span class="glyphicon glyphicon-filter"></span>  <a href="#plugins/filters/{{Name}}">{{Name}}</a></th>
+        <td><div class="sandbox-graph-holder" id="sandbox-graph-holder-1">1</div></td>
+        <td><div class="sandbox-graph-holder" id="sandbox-graph-holder-2">2</div></td>
       </tr>
-      {{#Outputs}}
-        <tr>
-          <td class="name"><a href="#sandboxes/{{PluginName}}/outputs/{{ShortFilename}}">{{Name}}{{^Name}}[Untitled]{{/Name}}</a></td>
-          <td class="type"><small>{{Type}}</small></td>
-        </tr>
-      {{/Outputs}}
-    {{/collection}}
-  </tbody>
-</table>
-{{/collection.length}}
-
-{{^collection.length}}
-  <div class="empty-list">No sandboxes are configured</div>
-{{/collection.length}}
+      <tr>
+        <td><div class="sandbox-graph-holder" id="sandbox-graph-holder-3">3</div></td>
+        <td><div class="sandbox-graph-holder" id="sandbox-graph-holder-4">4</div></td>
+      </tr>
+    </table>
+  </div>
+</div>

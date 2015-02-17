@@ -33,7 +33,13 @@ div .progress {
 
 h1.page-title {
   font-size: 280%;
+  margin-left: 100px;
+}
+
+h1.sandbox-title {
+  font-size: 280%;
   margin-bottom: 15px;
+  display: inline;
 }
 
 h2 .glyphicon {
@@ -88,6 +94,60 @@ h2 .glyphicon {
 
 #globals-index h3 {
   margin: 0;
+}
+
+#sandbox-content {
+  margin-top: 20px;
+}
+
+.sandboxes-table {
+  display: table;
+  width: 350px;
+}
+
+.sandboxes-filter-row {
+  display: table-row;
+  padding-top: 20px;
+}
+
+.sandboxes-filter-name {
+  display: table-cell;
+  align: left;
+  font-size: 16px;
+  padding-bottom: 5px;
+  white-space: nowrap;
+}
+
+.sandboxes-output-row {
+  display: table-row;
+}
+
+.sandboxes-output-name {
+  padding-left: 26px;
+  display: table-cell;
+  /* background: #CEF3F3; */
+}
+
+.sandboxes-output-type {
+  display: table-cell;
+  padding-right: 15px;
+}
+
+.sandboxes-output-graph {
+  display: table-cell;
+  visibility: hidden;
+  white-space: nowrap;
+}
+
+#sandboxes-dashboard-preview-table {
+  visibility: hidden;
+}
+
+.sandbox-graph-holder {
+  width: 400px; height: 300px; padding: 0.5em;
+  background-color: #fafafa;
+  margin-top: 30px;
+  border: 1px solid black;
 }
 
 table.sandboxes tbody th {

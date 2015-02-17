@@ -5,6 +5,7 @@ require.config({
 
   paths: {
     "jquery":                "vendor/jquery",
+    "jquery-ui":             "vendor/jquery-ui",
     "underscore":            "vendor/underscore",
     "backbone":              "vendor/backbone",
     "bootstrap":             "vendor/bootstrap.min",
@@ -49,7 +50,8 @@ define(
   [
     "backbone",
     "router",
-    "bootstrap"
+    "bootstrap",
+    "jquery-ui"
   ],
   function (Backbone, Router) {
     "use strict";

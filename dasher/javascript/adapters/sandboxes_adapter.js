@@ -39,6 +39,7 @@ define(
     SandboxesAdapter.instance = function() {
       if (!this._instance) {
         this._instance = new SandboxesAdapter();
+        window.saa = this._instance;
       }
 
       return this._instance;
@@ -50,7 +51,8 @@ define(
       *
       * @method findSandboxWhere
       *
-      * @param {Object} options Search options that are passed options that are passed to `Backbone.Collection.findWhere`
+      * @param {Object} options Search options that are passed options that
+               are passed to `Backbone.Collection.findWhere`
       * @param {Function} callback Function called when find is complete
       * @param {String} callback.result Model found from the search.
       */
@@ -85,7 +87,8 @@ define(
       *
       * @method parseArrayIntoCollection
       * @param {Object[]} array Array to be parsed
-      * @param {Backbone.Collection} collection Collection to be filled from parsed array
+      * @param {Backbone.Collection} collection Collection to be filled
+               from parsed array
       */
       parseArrayIntoCollection: function(array, collection) {
         var sandboxes = _.collect(array, function(s) {
@@ -96,11 +99,11 @@ define(
 
           var outputs = new Backbone.Collection(s.Outputs, { model: SandboxOutput });
           // No id is provided but the name is unique so use it as the id
-          return new Sandbox(_.extend(s, {id: s.Name, Outputs: outputs }));
+          return new Sandbox(_.extend(s, {id: s.Name, Outputs: outputs}));
         });
 
-        // If the collection already has data then we're doing an update so use set. Otherwise call
-        // reset so that the views are properly rendered.
+        // If the collection already has data then we're doing an update so use
+        // set. Otherwise call reset so that the views are properly rendered.
         if (collection.length > 0) {
           collection.set(sandboxes);
         } else {
